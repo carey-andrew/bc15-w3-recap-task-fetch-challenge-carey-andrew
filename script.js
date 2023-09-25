@@ -2,6 +2,12 @@ async function getAndDisplayMovies() {
   const movieData = await retrieveMovie();
   displayMovies(movieData);
 }
+//Timeout to check if the person is still there
+function stillThere() {
+  alert('Are you still there?');
+}
+setTimeout(stillThere, 100000);
+
 
 async function retrieveMovie() {
   const response = await fetch("https://api.themoviedb.org/3/discover/movie", {
