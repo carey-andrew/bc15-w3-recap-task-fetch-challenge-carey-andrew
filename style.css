@@ -1,0 +1,28 @@
+body {
+  background-color: rgb(125, 52, 215);
+  color: white;
+  font-family: Helvetica, Arial, sans-serif;
+  margin: 0px auto;
+}
+.header {
+  width: 400px;
+  margin: 30px auto;
+  padding: 10px;
+  text-align: center;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 10%);
+}
+.bold {
+  font-weight: bold;
+}
+.movieData {
+  margin: auto;
+  width: 500px;
+  text-align: center;
+}
+p {
+  display: none;
+} /* not displaying h2 only on example, please remove this rule */
+.hide {
+  display: none;
+}
