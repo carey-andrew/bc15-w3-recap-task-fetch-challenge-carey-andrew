@@ -26,3 +26,8 @@ p {
 .hide {
   display: none;
 }
+button {
+  margin: 0 260px 0 260px;
+  width: 100px;
+  align-items: center;
+}
