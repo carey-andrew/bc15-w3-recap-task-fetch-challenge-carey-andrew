@@ -27,30 +27,28 @@ async function retrieveMovie() {
   }
   // log data to check response
   const data = await response.json();
-  console.log(data);
+  // console.log(data);
   return data;
 }
-// function to display movie data
+
+// Function to display movie data
 function displayMovies(movieData) {
-  //store in array
-  const movieArray = movieData.results;
-  // access the title of each movie
-  const titles = movieArray.map((result) => result.title);
-  // loop through the titles in the array and save as variable
-  for (let i = 0; i < titles.length; i++) {
-    const movieName = document.querySelector(`.movie-name-${i}`);
-    if (movieName) {
-      movieName.textContent = titles[i];
+  // Access the array of movie results
+  const movies = movieData.results;
+
+  // Loop through each movie
+  for (let movie of movies) {
+    // Access properties of each movie (for example, the title)
+    console.log(movie.title)
     }
+    // loop through movie to display overview
+  for (let description of movies)
+  console.log(description.overview)
   }
-}
-// display movies when page loads
-document.addEventListener("DOMContentLoaded", getAndDisplayMovies);
-// function to display overview when title hovered over
-function displayInfo(movieData) {
-  const movieInfo = movieData.results.overview;
-  const information = movieInfo.toString((result) => result.title);
-  return information;
-}
-// event listener for mouseover - not complete yet
-document.addEventListener("mouseover", displayInfo);
+  // Call the function to start fetching and displaying movies
+  getAndDisplayMovies();
+// function to display movie overview
+
+  // function to create div class=movie-name
+  // function to add new movie listing for each new movie in the returned array
+// mouseover event to run when mouse pointer hovers over movie title to display movie overview
