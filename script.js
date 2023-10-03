@@ -46,9 +46,11 @@ function displayMovies(movieData) {
   console.log(description.overview)
   }
   // Call the function to start fetching and displaying movies
-  getAndDisplayMovies();
-// function to display movie overview
+  // wait for DOM to load then display movie list
+  document.addEventListener("DOMContentLoaded", getAndDisplayMovies)
+  //function for adding div class movie-name (append child for array) to create div on the fly
 
-  // function to create div class=movie-name
-  // function to add new movie listing for each new movie in the returned array
-// mouseover event to run when mouse pointer hovers over movie title to display movie overview
+getAndDisplayMovies();
+
+  //addEventListener to div for movie title function to add new movie listing for each new movie in the returned array
+
