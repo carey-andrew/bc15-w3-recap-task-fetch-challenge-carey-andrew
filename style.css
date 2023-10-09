@@ -14,8 +14,9 @@ body {
 }
 .bold {
   font-weight: bold;
+  text-align:center;
 }
-.movieData {
+.movie-name {
   margin: auto;
   width: 500px;
   text-align: center;
@@ -27,7 +28,7 @@ p {
   display: none;
 }
 button {
-  margin: 0 260px 0 260px;
-  width: 100px;
+  margin: 0 auto 0 auto;
+  width: auto;
   align-items: center;
 }

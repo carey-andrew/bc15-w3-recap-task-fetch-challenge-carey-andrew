@@ -30,27 +30,39 @@ async function retrieveMovie() {
   // console.log(data);
   return data;
 }
-
 // Function to display movie data
 function displayMovies(movieData) {
-  // Access the array of movie results
   const movies = movieData.results;
 
-  // Loop through each movie
+  // Get the parent element where you want to append the movie list
+  const movieList = document.querySelector(".movie-name"); // Use querySelector to select the first element with class "movie-name"
+
   for (let movie of movies) {
-    // Access properties of each movie (for example, the title)
-    console.log(movie.title)
-    }
-    // loop through movie to display overview
-  for (let description of movies)
-  console.log(description.overview)
+    // Create a new list item for each movie
+    const listItem = document.createElement("li");
+    listItem.textContent = movie.title;
+    // add element to display overview
+    const overview = document.createElement("div");
+    overview.className = "movie-description";
+    overview.textContent = movie.overview;
+    //appendChild to add to list
+    listItem.appendChild(overview);
+
+    //add eventListener to show on hover
+    listItem.addEventListener("mouseover", () => {
+      overview.style.display = "block";
+    });
+
+    //add eventListener to remove when hover finished
+    listItem.addEventListener("mouseout", () => {
+      overview.style.display = "none";
+    });
+    // Append the list item to the parent element
+    movieList.appendChild(listItem); // Use appendChild to add the listItem to movieList
   }
-  // Call the function to start fetching and displaying movies
-  // wait for DOM to load then display movie list
-  document.addEventListener("DOMContentLoaded", getAndDisplayMovies)
-  //function for adding div class movie-name (append child for array) to create div on the fly
+}
 
-getAndDisplayMovies();
+// Wait for DOM to load before fetching and displaying movies
+document.addEventListener("DOMContentLoaded", getAndDisplayMovies);
 
-  //addEventListener to div for movie title function to add new movie listing for each new movie in the returned array
-
+//addEventListener to div for movie title function to add new movie listing for each new movie in the returned array
