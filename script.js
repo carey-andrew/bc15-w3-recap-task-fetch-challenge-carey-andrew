@@ -1,12 +1,12 @@
 async function getAndDisplayMovies() {
   const movieData = await retrieveMovie();
-  displayMovies(movieData);
+  await displayMovies(movieData);
 }
 //Timeout to check if the person is still there
-function stillThere() {
-  alert("Are you still there?");
-}
-setTimeout(stillThere, 100000);
+// function stillThere() {
+//   alert("Are you still there?");
+// }
+// setTimeout(stillThere, 100000);
 
 // fetch data from API
 async function retrieveMovie() {
@@ -31,38 +31,46 @@ async function retrieveMovie() {
   return data;
 }
 // Function to display movie data
-function displayMovies(movieData) {
+async function displayMovies(movieData) {
   const movies = movieData.results;
+  console.log(movies);
 
   // Get the parent element where you want to append the movie list
-  const movieList = document.querySelector(".movie-name"); // Use querySelector to select the first element with class "movie-name"
+  const movieList = document.querySelector(".movie-name");
+  const posterFrame = document.getElementById("poster-path");
 
   for (let movie of movies) {
+    // Create an image element for each poster
+    const displayPoster = document.createElement("img");
+    displayPoster.src = movie.poster_path;
+
+    // Append the poster to the posterFrame
+    posterFrame.appendChild(displayPoster);
+
     // Create a new list item for each movie
     const listItem = document.createElement("li");
     listItem.textContent = movie.title;
-    // add element to display overview
+
+    // Create an element to display the movie overview
     const overview = document.createElement("div");
     overview.className = "movie-description";
     overview.textContent = movie.overview;
-    //appendChild to add to list
-    listItem.appendChild(overview);
 
-    //add eventListener to show on hover
+    // Add event listeners to show/hide overview on hover
+    listItem.addEventListener("mouseout", () => {
+      overview.style.display = "none";
+    });
     listItem.addEventListener("mouseover", () => {
       overview.style.display = "block";
     });
 
-    //add eventListener to remove when hover finished
-    listItem.addEventListener("mouseout", () => {
-      overview.style.display = "none";
-    });
+    // Append the overview to the list item
+    listItem.appendChild(overview);
+
     // Append the list item to the parent element
-    movieList.appendChild(listItem); // Use appendChild to add the listItem to movieList
+    movieList.appendChild(listItem);
   }
 }
 
 // Wait for DOM to load before fetching and displaying movies
 document.addEventListener("DOMContentLoaded", getAndDisplayMovies);
-
-//addEventListener to div for movie title function to add new movie listing for each new movie in the returned array

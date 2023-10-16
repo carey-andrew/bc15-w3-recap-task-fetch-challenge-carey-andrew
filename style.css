@@ -16,6 +16,10 @@ body {
   font-weight: bold;
   text-align:center;
 }
+.poster-path {
+  height: 330px;
+  width: 220px;
+}
 .movie-name {
   margin: auto;
   width: 500px;
