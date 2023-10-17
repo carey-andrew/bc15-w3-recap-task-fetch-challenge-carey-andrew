@@ -16,9 +16,17 @@ body {
   font-weight: bold;
   text-align:center;
 }
-.poster-path {
+.posters {
+  width: 500px;
+  justify-content: space-between;
+  margin: 1em;
+}
+#poster-path {
+  display: flex;
   height: 330px;
   width: 220px;
+}
+
 }
 .movie-name {
   margin: auto;
