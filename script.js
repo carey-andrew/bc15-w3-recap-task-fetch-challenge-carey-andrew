@@ -42,7 +42,9 @@ async function displayMovies(movieData) {
   for (let movie of movies) {
     // Create an image element for each poster
     const displayPoster = document.createElement("img");
-    displayPoster.src = movie.poster_path;
+    displayPoster.src = "https://image.tmdb.org/t/p/w500" + movie.poster_path;
+    // attempt to use local path as prefix to poster_path
+    //"http:/4m1Au3YkjqsxF8iwQy0fPYSxE0h.jpg" // attempt to find one poster
 
     // Append the poster to the posterFrame
     posterFrame.appendChild(displayPoster);
