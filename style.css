@@ -1,46 +1,55 @@
 body {
-  background-color: rgb(125, 52, 215);
+  background: linear-gradient(to right, #2193b0, #6dd5ed);
   color: white;
   font-family: Helvetica, Arial, sans-serif;
-  margin: 0px auto;
+  margin: 0;
 }
+
 .header {
   width: 400px;
   margin: 30px auto;
   padding: 10px;
   text-align: center;
   border-radius: 10px;
-  background-color: rgba(255, 255, 255, 10%);
-}
-.bold {
-  font-weight: bold;
-  text-align:center;
-}
-.posters {
-  width: 500px;
-  justify-content: space-between;
-  margin: 1em;
-}
-#poster-path {
-  display: flex;
-  height: 330px;
-  width: 220px;
+  background-color: #13293D;
 }
 
-}
-.movie-name {
-  margin: auto;
-  width: 500px;
+.bold {
+  font-weight: bold;
   text-align: center;
 }
-p {
-  display: none;
-} /* not displaying h2 only on example, please remove this rule */
+
+.posters {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: repeat(4, 1fr);
+  grid-auto-rows: minmax(100px, 330px);
+  gap: 0.5rem;
+  width: 1500px;
+  margin: 0 auto;
+}
+
+#poster-path img {
+  max-height: 330px;
+  width: 300px;
+  grid-column: auto; 
+  grid-row: auto; 
+}
+
+
+.movie-name {
+  margin: auto;
+  width: 220px;
+  text-align: center;
+}
+
 .hide {
   display: none;
 }
+
 button {
-  margin: 0 auto 0 auto;
+  margin: 0 auto;
   width: auto;
   align-items: center;
 }
+
