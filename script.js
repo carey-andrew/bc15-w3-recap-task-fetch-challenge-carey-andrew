@@ -33,21 +33,22 @@ async function retrieveMovie() {
 // Function to display movie data
 async function displayMovies(movieData) {
   const movies = movieData.results;
-  console.log(movies);
 
   // Get the parent element where you want to append the movie list
   const movieList = document.querySelector(".movie-name");
-  const posterFrame = document.getElementById("poster-path");
+  //const posterFrame = document.getElementById("poster-path");
 
   for (let movie of movies) {
+    // Create a container div for each poster
+    const posterContainer = document.createElement("div");
+    posterContainer.classList.add("poster-container");
+
     // Create an image element for each poster
     const displayPoster = document.createElement("img");
     displayPoster.src = "https://image.tmdb.org/t/p/w500" + movie.poster_path;
-    // attempt to use local path as prefix to poster_path
-    //"http:/4m1Au3YkjqsxF8iwQy0fPYSxE0h.jpg" // attempt to find one poster
 
-    // Append the poster to the posterFrame
-    posterFrame.appendChild(displayPoster);
+    // Append the poster to the poster container
+    posterContainer.appendChild(displayPoster);
 
     // Create a new list item for each movie
     const listItem = document.createElement("li");
@@ -66,6 +67,9 @@ async function displayMovies(movieData) {
       overview.style.display = "block";
     });
 
+    // Append the poster container to the list item
+    listItem.appendChild(posterContainer);
+
     // Append the overview to the list item
     listItem.appendChild(overview);
 
@@ -76,3 +80,4 @@ async function displayMovies(movieData) {
 
 // Wait for DOM to load before fetching and displaying movies
 document.addEventListener("DOMContentLoaded", getAndDisplayMovies);
+
