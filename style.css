@@ -70,17 +70,17 @@ li.movie-item {
 
 /* Style for the movie title and overview */
 .movie-details {
-  background: rgba(18, 16, 16, 0.47);
+  background: rgba(12, 11, 11, 1.0);
   color: #fff;
   padding: 5px;
   border-radius: 5px;
-  max-width: 230px;
+  max-width: 330px;
   max-height: 347px;
   display: none; /* Hidden by default */
   position: absolute;
   top: 0;
-  left: 2.5; 
-  right: 2; 
+  left: 0; 
+  right: 0; 
   bottom: 0; 
   z-index: 1;
 }
@@ -105,5 +105,5 @@ li.movie-item {
 .movie-overview {
   font-size: 1rem;
   padding: 35px 35px 0 35px;
-  margin-top: 20px;
+  margin-top: 10px;
 }
