@@ -39,6 +39,9 @@ async function displayMovies(movieData) {
   //const posterFrame = document.getElementById("poster-path");
 
   for (let movie of movies) {
+
+    const listItem = document.createElement("li");
+    listItem.classList.add(movie-item);
     // Create a container div for each poster
     const posterContainer = document.createElement("div");
     posterContainer.classList.add("poster-container");
@@ -46,38 +49,37 @@ async function displayMovies(movieData) {
     // Create an image element for each poster
     const displayPoster = document.createElement("img");
     displayPoster.src = "https://image.tmdb.org/t/p/w500" + movie.poster_path;
+    displayPoster.classList.add("overlay");
+
+    // Create an element to display the movie overview
+    const overview = document.createElement("div");
+    overview.className = "movie-description";
 
     // Append the poster to the poster container
     posterContainer.appendChild(displayPoster);
 
     // Create a new list item for each movie
-    const listItem = document.createElement("li");
-    listItem.textContent = movie.title;
 
-    // Create an element to display the movie overview
-    const overview = document.createElement("div");
-    overview.className = "movie-description";
-    overview.textContent = movie.overview;
+    
 
-    // Add event listeners to show/hide overview on hover
-    listItem.addEventListener("mouseout", () => {
+    //Add event listeners to show/hide overview on hover
+    posterContainer.addEventListener("mouseout", () => {
       overview.style.display = "none";
     });
-    listItem.addEventListener("mouseover", () => {
+    posterContainer.addEventListener("mouseover", () => {
       overview.style.display = "block";
     });
 
     // Append the poster container to the list item
-    listItem.appendChild(posterContainer);
+    // listItem.appendChild(posterContainer);
 
     // Append the overview to the list item
-    listItem.appendChild(overview);
+    // listItem.appendChild(overview);
 
     // Append the list item to the parent element
-    movieList.appendChild(listItem);
+    // movieList.appendChild(listItem);
   }
 }
 
 // Wait for DOM to load before fetching and displaying movies
 document.addEventListener("DOMContentLoaded", getAndDisplayMovies);
-

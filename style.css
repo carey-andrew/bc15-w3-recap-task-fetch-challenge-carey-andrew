@@ -12,19 +12,35 @@ body {
   text-align: center;
   border-radius: 10px;
   background-color: #13293d;
+  font-weight: bold;
 }
 
-.bold {
-  font-weight: bold;
-  text-align: center;
+.movie-list {
+  padding: 0 0 0 35px;
 }
-/*style for posters section*/
-.posters {
+li.movie-item {
+  list-style-type: none;
+  max-width:330px;
+}
+
+/* Style for the posters section */
+/* Style for the posters section */
+.movieData {
+  height: 410px;
+  /* align-items: start; */
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(4, 1fr);
-  border:1px solid red;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-gap: 1rem;
 }
+.movie-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  gap:2rem;
+  max-width:330px;
+}
+
 /* Style for each movie poster container */
 .poster-container {
   background-color: grey;
@@ -32,42 +48,62 @@ body {
   border-radius: 20px;
   height: 370px;
   width: 300px;
-  display:flex;
+  display: block;
   align-items: center;
-  justify-content: center; 
-  margin-left: 2rem;
-  border:1px solid red; 
-  }
+  justify-content: center;
+  position: relative; /* Added for positioning */
+  padding: 1rem;
+  margin:1rem; 
+}
 
 /* CSS for the posters */
 .poster-container img {
   max-height: 350px;
   max-width: 300px;
-  border:1px solid red;
-  
+  display: block;
+  align-items: center;
+  justify-content: center;
+  padding-left:2rem;
+  padding-right:1rem;
+  padding-top:0.5rem;
 }
 
-/* Style for the movie title in the poster container */
-.poster-container li {
-  font-weight: bold;
-  margin-top: 5px;
-}
-.movieData {
-  max-width: 395px;
-  text-align: center;
-  padding: 0 0.5rem;
-}
-.movieData li 
-{
-  list-style-type: none;
-}
-
-/* Style for the movie overview */
-.movie-description {
-  display: none;
-  background: rgba(0, 0, 0, 0.7);
+/* Style for the movie title and overview */
+.movie-details {
+  background: rgba(18, 16, 16, 0.47);
   color: #fff;
   padding: 5px;
   border-radius: 5px;
-  width: 350px;
+  max-width: 230px;
+  max-height: 347px;
+  display: none; /* Hidden by default */
+  position: absolute;
+  top: 0;
+  left: 2.5; 
+  right: 2; 
+  bottom: 0; 
+  z-index: 1;
+}
+
+/* CSS for showing movie details on hover */
+.poster-container:hover .movie-details {
+  /* Show on mouseover */
+  display: block;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  margin-top: 10px;
+  padding-top: 20px;
+  max-height:348px;
+}
+
+/* Additional styling for movie name and overview */
+.movie-name {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.movie-overview {
+  font-size: 1rem;
+  padding: 35px 35px 0 35px;
+  margin-top: 20px;
 }

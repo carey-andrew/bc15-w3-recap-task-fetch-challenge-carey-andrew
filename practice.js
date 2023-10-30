@@ -30,23 +30,52 @@ async function retrieveMovie() {
   // console.log(data);
   return data;
 }
+
 async function displayMovies(movieData) {
   const movies = movieData.results;
+  const movieList = document.querySelector(".movie-list");
 
-  
-    // Get the parent element where you want to append the movie posters
-    const postersContainer = document.querySelector(".posters");
-  
-    for (let movie of movies) {
-      // Create a div container for each movie poster
-      const posterContainer = document.createElement("div");
-      posterContainer.classList.add("poster-container");
-  
-      // Append the posterContainer to the postersContainer
-      postersContainer.appendChild(posterContainer);
-    }
+  for (let movie of movies) {
+    const listItem = document.createElement("li");
+    listItem.classList.add("movie-item");
+
+    const posterContainer = document.createElement("div");
+    posterContainer.classList.add("poster-container");
+
+    const displayPoster = document.createElement("img");
+    displayPoster.src = "https://image.tmdb.org/t/p/w500" + movie.poster_path;
+    displayPoster.classList.add("movie-poster");
+
+    const movieDetails = document.createElement("div");
+    movieDetails.classList.add("movie-details");
+
+    const movieName = document.createElement("div");
+    movieName.classList.add("movie-name");
+    movieName.textContent = movie.title;
+
+    const overview = document.createElement("div");
+    overview.classList.add("movie-overview");
+    overview.textContent = movie.overview;
+
+    posterContainer.appendChild(displayPoster);
+    posterContainer.appendChild(movieDetails); // Movie details container
+    listItem.appendChild(posterContainer);
+    movieList.appendChild(listItem);
+
+    // Add event listener to show/hide movie details on hover
+    posterContainer.addEventListener("mouseover", () => {
+      movieDetails.style.display = "block";
+    });
+
+    posterContainer.addEventListener("mouseout", () => {
+      movieDetails.style.display = "none";
+    });
+
+    // Add movie name and overview to the movie details container
+    movieDetails.appendChild(movieName);
+    movieDetails.appendChild(overview);
   }
-  
-  // Wait for DOM to load before fetching and displaying movies
-document.addEventListener("DOMContentLoaded", getAndDisplayMovies);
+}
 
+// Wait for DOM to load before fetching and displaying movies
+document.addEventListener("DOMContentLoaded", getAndDisplayMovies);
