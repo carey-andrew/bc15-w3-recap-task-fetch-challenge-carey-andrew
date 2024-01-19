@@ -20,7 +20,7 @@ body {
 }
 li.movie-item {
   list-style-type: none;
-  max-width:330px;
+  max-width: 330px;
 }
 
 /* Style for the posters section */
@@ -28,22 +28,25 @@ li.movie-item {
 .movieData {
   height: 410px;
   /* align-items: start; */
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  /* display: grid; */
+  /* grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(5, 1fr);
-  grid-gap: 1rem;
+  grid-gap: 1rem; */
 }
+
+/* main selector for grid */
 .movie-list {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(5, 1fr);
-  gap:2rem;
-  max-width:330px;
+  gap: 2rem;
+  max-width: 330px;
+  margin:0;
 }
 
 /* Style for each movie poster container */
 .poster-container {
-  background-color: grey;
+  background: linear-gradient(to left, grey, #ace2ee);
   text-align: center;
   border-radius: 20px;
   height: 370px;
@@ -53,7 +56,7 @@ li.movie-item {
   justify-content: center;
   position: relative; /* Added for positioning */
   padding: 1rem;
-  margin:1rem; 
+  margin: 1rem;
 }
 
 /* CSS for the posters */
@@ -63,14 +66,17 @@ li.movie-item {
   display: block;
   align-items: center;
   justify-content: center;
-  padding-left:2rem;
-  padding-right:1rem;
-  padding-top:0.5rem;
+  padding-left: 2rem;
+  padding-right: 1rem;
+  padding-top: 0.5rem;
+}
+.poster-container img:hover {
+  transform: scaleX(-0.3);
 }
 
 /* Style for the movie title and overview */
 .movie-details {
-  background: rgba(12, 11, 11, 1.0);
+  background: rgba(12, 11, 11, 1);
   color: #fff;
   padding: 5px;
   border-radius: 5px;
@@ -79,9 +85,9 @@ li.movie-item {
   display: none; /* Hidden by default */
   position: absolute;
   top: 0;
-  left: 0; 
-  right: 0; 
-  bottom: 0; 
+  left: 0;
+  right: 0;
+  bottom: 0;
   z-index: 1;
 }
 
@@ -93,7 +99,8 @@ li.movie-item {
   grid-template-rows: repeat(5, 1fr);
   margin-top: 10px;
   padding-top: 20px;
-  max-height:348px;
+  max-height: 348px;
+  overflow-y: scroll;
 }
 
 /* Additional styling for movie name and overview */
@@ -106,4 +113,41 @@ li.movie-item {
   font-size: 1rem;
   padding: 35px 35px 0 35px;
   margin-top: 10px;
+}
+
+@media screen and (max-width: 1825px) {
+  .movie-list {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 2rem;
+    max-width: 330px;
+    margin: 0;
+  }
+}
+@media screen and (max-width: 1442px) {
+  .movie-list {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 2rem;
+    max-width: 330px;
+    margin: 0;
+  }
+}
+@media screen and (max-width: 1096px) {
+  .movie-list {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 2rem;
+    max-width: 330px;
+    margin: 0;
+  }
+}
+@media screen and (max-width: 702px) {
+  .movie-list {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 2rem;
+    max-width: 330px;
+    margin: 0;
+  }
 }

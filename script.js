@@ -60,8 +60,6 @@ async function displayMovies(movieData) {
 
     // Create a new list item for each movie
 
-    
-
     //Add event listeners to show/hide overview on hover
     posterContainer.addEventListener("mouseout", () => {
       overview.style.display = "none";

@@ -33,6 +33,7 @@ async function retrieveMovie() {
 
 async function displayMovies(movieData) {
   const movies = movieData.results;
+  console.log(movieData);
   const movieList = document.querySelector(".movie-list");
 
   for (let movie of movies) {
@@ -58,7 +59,7 @@ async function displayMovies(movieData) {
     overview.textContent = movie.overview;
 
     posterContainer.appendChild(displayPoster);
-    posterContainer.appendChild(movieDetails); // Movie details container
+    posterContainer.appendChild(movieDetails); // Movie overview container
     listItem.appendChild(posterContainer);
     movieList.appendChild(listItem);
 
