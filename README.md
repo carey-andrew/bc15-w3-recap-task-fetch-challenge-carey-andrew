@@ -1,6 +1,6 @@
 # Fetch Recap Task
 
-To complete a fetch request task, I decided to build a movie website
+To complete a fetch request task, I decided to build a movie website. It helps my children see quickly what is on at the cinema.
 
 I learned a lot about making API calls and displaying data using the documentation from the API site. 
 
